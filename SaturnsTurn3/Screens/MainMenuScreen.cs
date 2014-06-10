@@ -127,7 +127,7 @@ namespace GameStateManagement
             if (otherScreenHasFocus.Equals(false))
             {
                 if (AudioManager.IsInitialized.Equals(true))
-                  //  AudioManager.PlaySound("titlemusic");
+                    AudioManager.PlaySound("titlemusic");
 
                // titleSong = content.Load<Song>("titlemusic");
                // MediaPlayer.Play(titleSong);
