@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using SaturnsTurn3.Utility;
 #endregion
 
@@ -26,8 +27,9 @@ namespace GameStateManagement
         ParticleText particleText;
         SpriteFont particleFont;
         ContentManager content;
-        //SoundEffect titleMusic;
-       // SoundEffectInstance titleMusictInstance;
+        Song titleSong;
+       // SoundEffect titleMusic;
+        //SoundEffectInstance titleMusictInstance;
         /// <summary>
         /// Constructor fills in the menu contents.
         /// </summary>
@@ -125,7 +127,11 @@ namespace GameStateManagement
             if (otherScreenHasFocus.Equals(false))
             {
                 if (AudioManager.IsInitialized.Equals(true))
-                    AudioManager.PlaySound("titlemusic");
+                  //  AudioManager.PlaySound("titlemusic");
+
+               // titleSong = content.Load<Song>("titlemusic");
+               // MediaPlayer.Play(titleSong);
+
             }
             else
             {
