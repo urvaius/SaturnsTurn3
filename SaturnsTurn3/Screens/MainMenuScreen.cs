@@ -27,7 +27,7 @@ namespace GameStateManagement
         ParticleText particleText;
         SpriteFont particleFont;
         ContentManager content;
-        Song titleSong;
+        
        // SoundEffect titleMusic;
         //SoundEffectInstance titleMusictInstance;
         /// <summary>
@@ -129,13 +129,14 @@ namespace GameStateManagement
                 if (AudioManager.IsInitialized.Equals(true))
                     AudioManager.PlaySound("titlemusic");
 
-               // titleSong = content.Load<Song>("titlemusic");
+               // Song titleSong = content.Load<Song>(@"Sounds\titlemusic");
                // MediaPlayer.Play(titleSong);
 
             }
             else
             {
-                AudioManager.StopSound("titlemusic");
+               // MediaPlayer.Stop();
+               AudioManager.StopSound("titlemusic");
             }
             particleText.Update();
             base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);

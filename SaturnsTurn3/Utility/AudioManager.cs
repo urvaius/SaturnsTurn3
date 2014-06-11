@@ -75,7 +75,7 @@ namespace SaturnsTurn3.Utility
         /// </summary>
         public static void LoadSounds()
         {
-            string soundLocation = "Sounds/";
+            string soundLocation = @"Sounds\";
 
             audioManager.soundNames = new string[,] 
             { 
@@ -87,8 +87,9 @@ namespace SaturnsTurn3.Utility
               //  {"LevelComplete", "success"},
                 {"PickedPowerup2", "powerup"},
                 //todo fix music
-             // {"gameMusic","gamemusic"},
+              {"gameMusic","gamemusic"},
              // {"titlesmusic", "titlemusic"} ,
+              {"title", "titlemusic"} ,
               {"explosion","explosionSound"},
               {"laser1","laserSound"}
               
@@ -255,10 +256,11 @@ namespace SaturnsTurn3.Utility
             {
                 if (disposing)
                 {
-                    foreach (var item in soundBank)
-                    {
-                        item.Value.Dispose();
-                    }
+                    //todo had to comment this out was getting exception errors
+                    //foreach (var item in soundBank)
+                    //{
+                    //    item.Value.Dispose();
+                    //}
                     soundBank.Clear();
                     soundBank = null;
                 }

@@ -87,12 +87,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SaturnsTurn3Content\SaturnsTurn3Content\SaturnsTurn3Content.csproj">
-      <Project>{0a60d1d0-a1a1-485b-a6ab-bb66e445130d}</Project>
-      <Name>SaturnsTurn3Content</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\Graphics\Backgrounds\star1.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -116,6 +110,15 @@
     <Content Include="Content\Graphics\arialblack50.xnb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\Effects\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Turn3Content\Turn3Content\Turn3Content.csproj">
+      <Project>{d9fd9f69-b045-49ec-ba3c-b95db7b5fd6a}</Project>
+      <Name>Turn3Content</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
