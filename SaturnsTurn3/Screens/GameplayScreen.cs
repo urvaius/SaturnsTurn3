@@ -49,6 +49,7 @@ namespace GameStateManagement
         Vector2 scorePosition; 
         //Texture2D backgroundStart;
         float playerMoveSpeed;
+        int level;
         Player player;
         int iLivesLeft;
         //figure out which we are going to use 
@@ -232,7 +233,7 @@ namespace GameStateManagement
             //randomPowerUp = new Random();
             //initialize a new player. not sure why have to do it here. 
             player = new Player();
-
+            level = 1;
             //try projectile hee
 
             gameOver = false;
@@ -493,11 +494,20 @@ namespace GameStateManagement
         private void PlayerKilled()
         {
 
+
+            AddExplosion(player.Position3);
+            AudioManager.PlaySound("explosionSound");
             iLivesLeft -= 1;
+
             player.Active = false;
+            
+
             if (iLivesLeft > 0)
             {
+                
+                ScreenManager.AddScreen(new KilledMenuScreen(), ControllingPlayer);
                 player.Respawn();
+                
                 player.Position3 = new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
 
             }
@@ -562,11 +572,25 @@ namespace GameStateManagement
             //    standardEffect.Parameters["DesaturationAmount"].SetValue(0.0f);
             //}
 
+            
+
+            //set level by score
+            if (player.Score > 1000 && player.Score < 1999)
+            {
+                level = 2;
+            }
+            if (player.Score >2000 )
+            {
+                level = 3;
+            }
+           
+
             if (player.Health <= 0 && gameTime.TotalGameTime - previousDeathTime > deathTime)
             {
                 previousDeathTime = gameTime.TotalGameTime;
                 //todo
                 PlayerKilled();
+                
 
             }
             // if (player.Health <= 0)
@@ -871,36 +895,53 @@ namespace GameStateManagement
                 }
             }
         }
+       
+        
+        
+        
         private void UpdateEnemies(GameTime gameTime)
         {
-            //spawn a new enemy every 1.5 seconds
-            if (gameTime.TotalGameTime - previousSpawnTime > enemySpawnTime)
+
+            if (level >=1)
             {
-                previousSpawnTime = gameTime.TotalGameTime;
-                //add the enemy
-                AddEnemy();
+                //spawn a new enemy every 1.5 seconds
+                if (gameTime.TotalGameTime - previousSpawnTime > enemySpawnTime)
+                {
+                    previousSpawnTime = gameTime.TotalGameTime;
+                    //add the enemy
+                    AddEnemy();
+
+                }
+            }
+          
+           
+            if (level >=2)
+            {
+                if (gameTime.TotalGameTime - previousFireHairSpawnTime > fireHairSpawnTime)
+                {
+                    previousFireHairSpawnTime = gameTime.TotalGameTime;
+                    AddFireHair();
+                }
+                //spawn ballon enemies every 5 sec
+                if (gameTime.TotalGameTime - previousBalloonSpawnTime > balloonEnemySpawnTime)
+                {
+                    previousBalloonSpawnTime = gameTime.TotalGameTime;
+                    //add abllon enemies
+                    AddBalloonEnemy();
+                }
 
             }
-
-            if(gameTime.TotalGameTime - previousFireHairSpawnTime >fireHairSpawnTime)
+            
+            if(level >=3)
             {
-                previousFireHairSpawnTime = gameTime.TotalGameTime;
-                AddFireHair();
+                //spawn asteroids
+                if (gameTime.TotalGameTime - previousAsteroidSpawnTime > asteroidSpawnTime)
+                {
+                    previousAsteroidSpawnTime = gameTime.TotalGameTime;
+                    AddAsteroid();
+                }
             }
-            //spawn ballon enemies every 5 sec
-            if (gameTime.TotalGameTime - previousBalloonSpawnTime > balloonEnemySpawnTime)
-            {
-                previousBalloonSpawnTime = gameTime.TotalGameTime;
-                //add abllon enemies
-                AddBalloonEnemy();
-            }
-
-            //spawn asteroids
-            if (gameTime.TotalGameTime - previousAsteroidSpawnTime > asteroidSpawnTime)
-            {
-                previousAsteroidSpawnTime = gameTime.TotalGameTime;
-                AddAsteroid();
-            }
+           
             //update asteroids
 
             for (int k = asteroids2.Count - 1; k >= 0; k--)
@@ -918,6 +959,7 @@ namespace GameStateManagement
                 {
                     asteroids2.RemoveAt(k);
                 }
+                
             }
 
             //update fire hair
@@ -1226,9 +1268,12 @@ namespace GameStateManagement
             
             
            
+            if(player.Active)
+            {
+                player.Draw(spriteBatch);
+            }
 
-
-            player.Draw(spriteBatch);
+            
 
             spriteBatch.End();
 
