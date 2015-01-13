@@ -8,9 +8,6 @@ Content\Graphics\gradientgreen.xnb
 Content\Graphics\lasergreen.xnb
 Content\Graphics\mineAnimation.xnb
 Content\Graphics\mineGreenAnimation.xnb
-Content\Graphics\powerup.xnb
-Content\Graphics\shieldpowerup.xnb
-Content\Graphics\shipAnimation.xnb
 Content\Graphics\TextParticle.xnb
 Content\Sounds\explosion.xnb
 Content\Sounds\laser1.xnb
@@ -22,4 +19,13 @@ Content\Sounds\titlemusic.xnb
 Content\Graphics\gameFont.xnb
 Content\Graphics\menufont.xnb
 Content\Graphics\playerShip1_greenrotate5066.xnb
+Content\Graphics\shield_gold.xnb
+Content\Graphics\bolt_gold.xnb
+Content\Graphics\star_gold.xnb
+Content\Graphics\shield_silver.xnb
+Content\Graphics\star_silver.xnb
+Content\Graphics\bold_silver.xnb
+Content\Graphics\bolt_bronze.xnb
+Content\Graphics\shield_bronze.xnb
+Content\Graphics\star_bronze.xnb
 Content\Sounds\titlemusic.wma

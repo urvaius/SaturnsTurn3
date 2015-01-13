@@ -175,8 +175,8 @@ namespace GameStateManagement
             //asteroidTexture = content.Load<Texture2D>(@"Graphics\asteroid01");
             enemyTexture = content.Load<Texture2D>(@"Graphics\mineAnimation");
             balloonEnemyTexture = content.Load<Texture2D>(@"Graphics\mineGreenAnimation");
-            powerupDamageTexture = content.Load<Texture2D>(@"Graphics\powerup");
-            powerupShieldTexture = content.Load<Texture2D>(@"Graphics\shieldpowerup");
+            powerupDamageTexture = content.Load<Texture2D>(@"Graphics\bolt_gold");
+            powerupShieldTexture = content.Load<Texture2D>(@"Graphics\shield_gold");
             //todo dont think this mainbackground is drawn
            // mainBackground = content.Load<Texture2D>(@"Graphics\mainbackground");
 
@@ -1166,6 +1166,7 @@ namespace GameStateManagement
 
             spriteBatch.DrawString(scoreFont, "Shield: " + player.Shield, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + 100), Color.White);
 
+            spriteBatch.DrawString(scoreFont, "Laser: " + player.DamageMod, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + 130), Color.White);
             //draw asteroids
             foreach(AsteroidEnemy2 asteroid in asteroids2)
             {
