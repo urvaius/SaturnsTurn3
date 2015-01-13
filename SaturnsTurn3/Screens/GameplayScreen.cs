@@ -766,6 +766,7 @@ namespace GameStateManagement
                 //determine if the thwo objects collided with each other
                 if (playerRectangle.Intersects(enemyRectangle2))
                 {
+                    
                     if (player.Shield > 0)
                     {
                         player.Shield -= enemies[i].Damage;
@@ -1166,7 +1167,7 @@ namespace GameStateManagement
 
             spriteBatch.DrawString(scoreFont, "Shield: " + player.Shield, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + 100), Color.White);
 
-            spriteBatch.DrawString(scoreFont, "Laser: " + player.DamageMod, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + 130), Color.White);
+            spriteBatch.DrawString(scoreFont, "Damage: + " + player.DamageMod, new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + 130), Color.White);
             //draw asteroids
             foreach(AsteroidEnemy2 asteroid in asteroids2)
             {
