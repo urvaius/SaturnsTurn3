@@ -243,12 +243,16 @@ namespace GameStateManagement
             //use animation now.
 
             Animation playerAnimation = new Animation();
-            Texture2D playerTexture = content.Load<Texture2D>(@"Graphics\shipAnimation");
-
-            playerAnimation.Initialize(playerTexture, Vector2.Zero, 115, 69, 8, 30, Color.White, 1f, true);
+            //load the player texture 
+           // Texture2D playerTexture = content.Load<Texture2D>(@"Graphics\shipAnimation");
+            Texture2D playerTexture = content.Load<Texture2D>(@"Graphics\playerShip1_greenrotate5066");
+            
+            playerAnimation.Initialize(playerTexture, Vector2.Zero, 50, 66, 1, 30, Color.White, 1f, true);
+            
             Vector2 playerPosition3 = new Vector2(ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.X, ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Y + ScreenManager.GraphicsDevice.Viewport.TitleSafeArea.Height / 2);
             player.Initialize(playerAnimation, playerPosition3);
-
+            //if use scale here aiming wrong.
+            
 
             //----animation section ^
 
