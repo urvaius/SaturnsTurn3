@@ -221,10 +221,16 @@ namespace GameStateManagement
             balloonEnemies = new List<GreenMineEnemy>();
             //set enemy spawn time keepers to zero
             previousSpawnTime = TimeSpan.Zero;
-            previousBalloonSpawnTime = TimeSpan.Zero;
-            //used to determine how fast enemy respawns
-            enemySpawnTime = TimeSpan.FromSeconds(2.0f);
-            balloonEnemySpawnTime = TimeSpan.FromSeconds(5.0f);
+			enemySpawnTime = TimeSpan.FromSeconds(2.0f);
+			//todo moved balloon enemy ones look at it again
+			previousBalloonSpawnTime = TimeSpan.Zero;
+			balloonEnemySpawnTime = TimeSpan.FromSeconds(5.0f);
+			//used to determine how fast enemy respawns
+
+			
+            
+
+
             powerUpSpawnTime = TimeSpan.FromSeconds(10.0f);
             previousPowerUpSpawnTime = TimeSpan.Zero;
             previousDeathTime = TimeSpan.Zero;
@@ -1070,6 +1076,8 @@ namespace GameStateManagement
             GreenMineEnemy balloonEnemy = new GreenMineEnemy();
             //initizlize the enemy
             balloonEnemy.Initialize(balloonEnemyAnimation, position);
+			
+
             // add the enemy to the active enemies list
             balloonEnemies.Add(balloonEnemy);
 

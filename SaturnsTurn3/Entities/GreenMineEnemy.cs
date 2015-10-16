@@ -6,7 +6,8 @@ namespace SaturnsTurn3
 {
     class GreenMineEnemy
     {
-        #region fields
+		#region fields
+	
         //animation for the enemy
         public Animation EnemyAnimation;
         //the position of enemy of ship
@@ -52,6 +53,7 @@ namespace SaturnsTurn3
             //set the score value
             Value = 200;
             OnScreen = true;
+			
         }
         public void Update(GameTime gameTime)
         {
